@@ -159,6 +159,7 @@ export default {
       })
       getHome().then((res) => {
         if(res.code === 200) {
+          loading.close()
           var data = res.data
           this.banners = data.companyFiles
           this.brands = data.brands
@@ -173,8 +174,7 @@ export default {
               this.liveRooms1.push(item)
             }
           })
-          this.endTime = this.liveRooms1[0].startTime
-          loading.close()
+          this.endTime = this.liveRooms1 ? this.liveRooms1[0].startTime : ''
         }
       })
     },

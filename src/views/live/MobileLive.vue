@@ -142,7 +142,7 @@ export default {
               this.liveListBig.push(item)
             }
           })
-          this.endTime = this.liveListBig[0].startTime
+          this.endTime = this.liveListBig ? this.liveListBig[0].startTime : ''
         }
       })
     },
@@ -247,6 +247,8 @@ export default {
         h2{
           font-size: .24rem;
           color: #666;
+          height: .32rem;
+          line-height: .32rem;
         }
       }
     }

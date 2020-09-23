@@ -170,7 +170,7 @@ export default {
               this.liveListBig.push(item)
             }
           })
-          this.endTime = this.liveListBig[0].startTime
+          this.endTime = this.liveListBig ? this.liveListBig[0].startTime : ''
         }
       })
     },
@@ -297,6 +297,8 @@ export default {
           color: #666;
           font-weight: normal;
           margin-bottom: 10px;
+          height: 30px;
+          line-height: 30px;
         }
         p{
           font-size: 14px;
