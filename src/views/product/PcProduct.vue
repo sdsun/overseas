@@ -279,7 +279,7 @@ export default {
           response.data.forEach((item,index)=>{
             if(item!=null){
               let fileName=item.substring(item.lastIndexOf("/")+1,item.length)
-              const promise = getFile(item).then(data => {
+              const promise = getFile('https://cdnoverseas.haier.net/'+item).then(data => {
                 zip.file(fileName, data, { binary: true })
               })
               promises.push(promise)
