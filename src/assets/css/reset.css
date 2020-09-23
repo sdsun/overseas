@@ -1,0 +1,146 @@
+@charset "utf-8";
+@import '//at.alicdn.com/t/font_2007236_nk9ve0e0g4.css';
+/* CSS Document */
+
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select,td{margin:0;padding:0;}
+html{font-size: 14px}
+body{word-wrap:break-word; font-size: 14px; color: #333;}
+body,html{width: 100%; height: 100%; font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;}
+a,u,s,del{color:#666;text-decoration:none}
+fieldset ,a img,.bor0 {border:0;}
+i,em,b{font-style:normal;font-weight: normal;}
+li{list-style:none;}
+img{vertical-align:middle;}
+table{border-collapse:collapse;}
+input,textarea{outline:none;}
+textarea{resize:none;}
+
+/* 页面 */
+.pc{min-width: 1200px; overflow-x: hidden;}
+.mobile{width: 100%; overflow-x: hidden; padding-bottom: 1.2rem;}
+
+/* 浮动 */
+.w{width:1200px; margin:0 auto;}
+.w1440{width: 1200px; margin: 0 auto;}
+.fl{float:left;}
+.fr{float:right;}
+
+/* 响应式图片 */
+.rep-img{display: block; width: 100%; height: auto;}
+
+/* 清除浮动 */
+.cf{clear: both;}
+.cf:after{content:''; clear: both; overflow:hidden; display:block; height:0; font-size:0;}
+
+/* 文字超出隐藏 */
+.ellipsis-1 { white-space: nowrap;overflow: hidden;text-overflow: ellipsis; }
+.ellipsis-2 { display: -webkit-box;overflow: hidden;text-overflow: ellipsis;-webkit-line-clamp: 2;-webkit-box-orient: vertical; }
+.ellipsis-3 { display: -webkit-box;overflow: hidden;text-overflow: ellipsis;-webkit-line-clamp: 3;-webkit-box-orient: vertical; }
+.textarea {white-space: pre-line;}
+
+/* pc端公共样式 */
+.common-title{
+  background: #19276c;
+  color: #FFF;
+  font-size: 26px;
+  font-weight: normal;
+  letter-spacing: 2px;
+  height: 60px;
+  line-height: 60px;
+  text-indent: 20px;
+  margin-bottom: 20px;
+}
+.common-title a{
+  margin-right: 20px;
+  font-size: 16px;
+  color: #CCC;
+  transition: all .5s;
+}
+.common-title a:hover{
+  color: #FFF;
+}
+/* vr& live*/
+.vr-item, .live-item{
+  position: relative;
+  text-align: center;
+}
+.enter-btn{
+  position: relative;
+  display: inline-block;
+  bottom: 80px;
+  height: 36px;
+  line-height: 36px;
+  letter-spacing: 4px;
+  font-size: 15px;
+  color: #CCC;
+  background: rgba(0,0,0,.4);
+  padding: 0 40px;
+  border-radius: 21px;
+  transition: all .5s;
+  cursor: pointer;
+}
+.enter-btn:hover{
+  color: #FFF;
+  background: rgba(0,0,0,.6);
+  transform: translateY(-5px);
+}
+/* 移动端公共样式 */
+.m-common-title{
+  background: #19276c;
+  color: #FFF;
+  font-size: 0.32rem;
+  font-weight: normal;
+  height: 0.6rem;
+  line-height: 0.6rem;
+  text-indent: 0.3rem;
+  margin-bottom: 0.2rem;
+}
+.m-common-title a{
+  margin-right: .3rem;
+  font-size: .24rem;
+  color: #FFF;
+  font-weight: normal;
+}
+/* element slider style */
+.el-carousel__button{
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 5px !important;
+}
+.el-carousel__indicator.is-active button {
+  opacity: 1 !important;
+  width: 80px !important;
+}
+.checkVLink{
+  text-align: center;
+  padding: 40px 0;
+}
+.checkVLink a{
+  padding: 0 35px;
+  margin: 0 20px;
+  display: inline-block;
+  height: 38px;
+  line-height: 38px;
+  background: #67c23a;
+  color: #FFF;
+  font-size: 15px;
+  transition: all .5s;
+}
+.checkVLink a:hover{
+  opacity: .8;
+}
+/* element ui 适配移动端 */
+@media screen and (max-width: 750px) {
+  .el-dialog__wrapper .el-dialog {
+    width: 95% !important;
+  }
+  .el-dialog__wrapper .el-dialog .el-dialog__body {
+    overflow: auto !important;
+  }
+  .el-message {
+    min-width: 300px !important;
+  }
+  .el-message-box{
+    width: 300px !important;
+  }
+}
