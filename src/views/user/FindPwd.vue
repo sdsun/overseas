@@ -42,6 +42,11 @@
             </el-button>
           </el-form-item>
         </el-form>
+        <div style="padding-bottom: 20px;">
+          <router-link style="color: #059bda; margin-top: 10px;" :to="{ name: 'Login' }">
+            Go to login
+          </router-link>
+        </div>
       </div>
     </div>
   </div>

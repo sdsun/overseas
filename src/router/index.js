@@ -72,7 +72,7 @@ const routes = [
         name: 'FindPwd',
         component: () => import('@/views/user/FindPwd'),
         meta: {
-          title: 'Register'
+          title: 'Find Password'
         }
       }
     ]

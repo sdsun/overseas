@@ -13,9 +13,6 @@
         <span><i>{{ time.second }}</i>Seconds</span>
       </TimerCountdown>
     </template>
-    <template v-else>
-      <span>End</span>
-    </template>
   </div>
 </template>
 
