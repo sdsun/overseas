@@ -277,7 +277,11 @@ export default {
     },
     // 下载文件
     handleDownload (id, name, diff, model) {
-      var diff = diff.replace(/,/g, "/n");
+      var diffPoint = []
+      diff.map((item, index) => {
+        diffPoint.push('·' + item)
+      })
+      diffPoint = diffPoint.join(',').replace(/,/g, "<br />")
       getExhibitsFiles(id).then((response) =>{
         if (response.code === 200) {
           const promises = []
@@ -285,8 +289,8 @@ export default {
           var file = new File([
             `
               <h1>${ name }</h1>\n<hr />
-              <h3>Model</h3>\n${model}\n
-              <h3>Different Sell Point：</h3>\n${diff}\n
+              <h2>Model</h2>\n${model}\n
+              <h2>Different Sell Point：</h2>\n${diffPoint}\n
             `
             ], "",
             {type: "text/plain;charset=utf-8"}
