@@ -72,7 +72,12 @@
                     <div class="rn">
                       <h2>
                         {{ getLangData(item.exhibitsName) }}
-                        <el-button size="mini" round @click="handleDownload(item.id, getLangData(item.exhibitsName), getLangData(item.exhibitsDiffSellPoint))">Download</el-button>
+                        <el-button
+                          size="mini"
+                          round
+                          @click="handleDownload(item.id, getLangData(item.exhibitsName), getLangData(item.exhibitsDiffSellPoint), getLangData(item.exhibitsModelNum))">
+                          Download
+                        </el-button>
                       </h2>
                       <ul>
                         <template v-if="$i18n.locale == 'en'">
@@ -271,21 +276,26 @@ export default {
       })
     },
     // 下载文件
-    handleDownload (id, name, diff) {
+    handleDownload (id, name, diff, model) {
+      var diff = diff.replace(/,/g, "/n");
       getExhibitsFiles(id).then((response) =>{
         if (response.code === 200) {
           const promises = []
           const zip = new JSZip()
-		  var file = new File([
-			   `<h1>${ name }</h1>\n ${diff}`
-			], "",
-			{type: "text/plain;charset=utf-8"}
-		  );
-		  var fileReader = new FileReader();
-		  fileReader.readAsArrayBuffer(file);
-		  fileReader.onload = function() {
-			zip.file( name+'.doc', fileReader.result, { binary: true })
-		  }
+          var file = new File([
+            `
+              <h1>${ name }</h1>\n<hr />
+              <h3>Model</h3>\n${model}\n
+              <h3>Different Sell Point：</h3>\n${diff}\n
+            `
+            ], "",
+            {type: "text/plain;charset=utf-8"}
+          );
+          var fileReader = new FileReader();
+          fileReader.readAsArrayBuffer(file);
+          fileReader.onload = function() {
+            zip.file( name+'.doc', fileReader.result, { binary: true })
+          }
           response.data.forEach((item,index)=>{
             if(item!=null){
               let fileName=item.substring(item.lastIndexOf("/")+1,item.length)
