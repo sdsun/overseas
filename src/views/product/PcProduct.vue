@@ -281,19 +281,15 @@ export default {
       diff.map((item, index) => {
         diffPoint.push('·' + item)
       })
-      diffPoint = diffPoint.join(',').replace(/,/g, "<br />")
+      diffPoint = diffPoint.join(',').replace(/,/g, "\n")
       getExhibitsFiles(id).then((response) =>{
         if (response.code === 200) {
           const promises = []
           const zip = new JSZip()
           var file = new File([
-            `
-              <h1>${ name }</h1>\n<hr />
-              <h2>Model</h2>\n${model}\n
-              <h2>Different Sell Point：</h2>\n${diffPoint}\n
-            `
+            `${ name }\n\nModel:\n${model}\n\nDifferent Sell Point：\n${diffPoint}\n`
             ], "",
-            {type: "text/plain;charset=utf-8"}
+            {type: "text/html;charset=utf-8"}
           );
           var fileReader = new FileReader();
           fileReader.readAsArrayBuffer(file);
